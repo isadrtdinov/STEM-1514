@@ -1,0 +1,173 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english, russian]{babel}
+\usepackage{unicode-math}
+\usepackage{circuitikz}
+\usepackage{amsmath}
+
+\begin{document}
+
+\begin{enumerate}
+    \item (8-9 класс). Серёжа хочет собрать гирлянду для новогодней ёлки. У него есть $ 10 $ красных светодиодов и столько же синих, а также элемент питания, изображенный на рисунке (его параметры $ U = 220\textup{В}, r = 1 \textup{кОм}$). Красный светодиод имеет сопротивление $ R_{\textup{к}} = 8\textup{кОм} $, и загорается, если напряжение на нем не меньше $ U_{\textup{к}} = 8\textup{В} $. Синий светодиод имеет сопротивление $ R_{\textup{с}} = 4\textup{кОм} $, и загорается, если сила тока через него не меньше $ I_{\textup{с}} = 10\textup{мА} $. Предложите схему для гирлянды, в которой все $ 20 $ светодиодов загорятся.
+    
+    \begin{center}
+        \begin{circuitikz} \draw
+            (0, 0) to[battery1, l=$U$, o-] (2, 0)
+            (2, 0) to[generic, l=$r$, -o] (4, 0)
+            ;
+        \end{circuitikz}
+    \end{center}
+
+    \item (8-9 класс). Юра хочет приготовить какао. Он заглядывает в холодильник и находит там бутылку молока объёмом $ V = 500\textup{мл} $. Затем, он открывает шкаф и обнаруживает там плитку шоколода массой $ m = 100\textup{г} $ и кастрюлю с теплоемкостью $ C = 500\frac{\textup{Дж}}{\textup{град}} $. Юра выливает молоко в кастрюлю и разламывает в него шоколад, после чего ставит кастрюлю на электроплиту. Комфорка плиты имеет тепловую мощность $ N = 300 \textup{Вт} $, при этом $ \alpha = 15\% $ тепла рассеивается. Юре становится скучно ждать, пока какао приготовиться, и он решает немного вздремнуть. Юра предпочитает какао при температуре $ t_{\textup{к}} = 70^{\circ} \textup{C} $. Помогите ему рассчитать, на какое время нужно поставить таймер, чтобы какао приготовился. Вам известны следующие данные:
+    
+    \begin{itemize}
+        \item Плотность молока: $ \rho_{\textup{м}} = 1100 \frac{\textup{кг}}{\textup{м}^3} $
+        \item Удельная теплоемкость молока: $ c_{\textup{м}} = 3900 \frac{\textup{Дж}}{\textup{кг}\cdotp\textup{град}} $
+        \item Удельная теплоемкость твердого шоколада: $ c_1 = 5500 \frac{\textup{Дж}}{\textup{кг}\cdotp\textup{град}} $
+        \item Удельная теплоемкость плавленного шоколада: $ c_2 = 1675 \frac{\textup{Дж}}{\textup{кг}\cdotp\textup{град}} $
+        \item Удельная теплота плавления шоколада: $ \lambda = 125 \frac{\textup{кДж}}{\textup{кг}} $
+        \item Температура плавления шоколада: $ t_{\textup{пл}} = 35^{\circ} \textup{C} $
+        \item Температура в комнате: $ t_0 = 25^{\circ} \textup{C} $
+        \item Температура в холодильнике: $ t_{\textup{х}} = 5^{\circ} \textup{C} $
+    \end{itemize}
+
+    \item (10 класс). Двое школьников катаются на санках с ледяной горки. Они стартуют одновременно и без начальной скорости, один с высоты $ h $, другой с высоты $ 4h $. У основания горка переходит в заснеженную горизонтальную поверхность, коэффициент трения между снегом и полозьями санок - $ \mu $. Найдите:
+    \begin{itemize}
+        \item Расстояние между школьниками после полной остановки ($ 2 $ балла).
+        \item Время от начала движения до того момента, как второй школьник догонит первого ($ 6 $ баллов).
+    \end{itemize}
+    
+    \item (10 класс). Запах новогодней ёлки появляется из-за соединения борнилацетата (входит в состав эфирных масел хвойных деревьев, молярная масса $ M = 196 \textup{г/моль} $). Человек чувствует хвойный запах, если концентрация борнилацетата составляет $ n = 10^{-6} $ ($ 1 $ молекула на $ 10^6 $ других молекул в воздухе). Ёлку ставят в комнате площади $ S = 25 \textup{м}^2 $ с потолками высотой $ h = 3 \textup{м} $. За $ 1 $ секунду ёлка распыляет в воздух $ \Delta m = 0.5 \textup{мг} $ борнилацетата. Через какое время $ \tau $ человек, находящийся в комнате, почуствует хвойный запах? Считать, что борнилацетат распространяется по комнате равномерно. Атмосферное давление $ p_0 = 100 \textup{кПа} $, температура в комнате $ t = 27^{\circ} \textup{C} $.
+
+\end{enumerate}
+
+\begin{enumerate}
+    \item Чтобы получить на резисторах требуемые напряжение и силу тока, можно построить такую схему:
+    
+    \begin{center}
+        \begin{circuitikz} \draw
+            (0, 0) to[battery1, l=$U$] (2, 0)
+            (2, 0) to[generic, l=$r$] (4, 0)
+            (0, 0) to (0, -6)
+            (4, 0) to (4, -6)
+            (0, -2) to[generic, l=$R_\textup{к}$] (2, -2)
+            (2, -2) to[generic, l=$R_\textup{с}$] (4, -2)
+            (0, -6) to[generic, l=$R_\textup{к}$] (2, -6)
+            (2, -6) to[generic, l=$R_\textup{с}$] (4, -6);
+            \node at (2, -4) {..................};
+        \end{circuitikz}
+    \end{center}
+    
+    Пусть $ I $ - ток, текущий через светодиоды. Тогда через источник течет ток $ 10 I $. Найдем этот ток, а также напряжение на красных светодиодах:
+
+    $$
+    \begin{cases}
+        U = 10 I r + I \left(R_\textup{к} + R_\textup{с}\right) \\
+        U_\textup{к} = I R_\textup{к}
+    \end{cases}
+    $$
+
+    $$
+    \begin{cases}
+        I = \frac{U}{10r + R_\textup{к} + R_\textup{с}} = 10\textup{мА} \\
+        U_\textup{к} = \frac{U R_\textup{к}}{10r + R_\textup{к} + R_\textup{с}} = 8\textup{В}
+    \end{cases}
+    $$
+
+    
+    \item Пусть $ \tau $ - время нагрева системы до температуры $ t_{\textup{к}} $. Распишем уравнение теплового баланса:
+
+    \small
+    \begin{gather*}
+        \left( 1 - \frac{\alpha}{100\%} \right) N \tau = c_{\textup{м}} \rho_{\textup{м}} V \left( t_{\textup{к}} - t_{\textup{х}} \right) + C \left( t_{\textup{к}} - t_0 \right) + c_1 m \left( t_{\textup{пл}} - t_0 \right) + \\
+        + \lambda m + c_2 m \left(  t_{\textup{к}} - t_{\textup{пл}} \right)
+    \end{gather*}
+    \small
+
+    Отсюда:
+
+    \small
+    \begin{gather*}
+        \tau = \frac{c_{\textup{м}} \rho_{\textup{м}} V \left( t_{\textup{к}} - t_{\textup{х}} \right) + C \left( t_{\textup{к}} - t_0 \right) + c_1 m \left( t_{\textup{пл}} - t_0 \right) + \lambda m + c_2 m \left(  t_{\textup{к}} - t_{\textup{пл}} \right)}{\left( 1 - \frac{\alpha}{100\%} \right) N} \approx \\
+        \approx 729 \; \textup{сек} \approx 12 \; \textup{минут}
+    \end{gather*}
+    \small
+
+    \item
+    \begin{enumerate}
+        \item Воспользуемся законом сохранения энергии $ \left( \Delta W_p = A_{\textup{тр}} \right) $:
+    
+        $$
+        \begin{cases}
+            m g h = \mu m g S_1 \\
+            4m g h = \mu m g S_2
+        \end{cases}
+        $$
+
+        \begin{equation*}
+            \Delta S = S_2 - S_1 = \frac{3h}{\mu}
+        \end{equation*}
+
+        \item Введем ось вдоль горки вниз, на горизонтальной поверхности по направлению движения. Тогда ускорения на этих участках, соответственно, равны $ a_1 = g\sin{\alpha}, a_2 = -\mu g $ (можно не придираться к нахождению ускорений из динамических соображений). Из уравнения
+        
+        \begin{equation*}
+            \frac{h}{\sin{\alpha}} = \frac{gt^2\sin{\alpha}}{2}
+        \end{equation*}
+        
+        находим время спуска первого и второго школьников:
+
+        \begin{gather*}
+            t_1 = \frac{1}{\sin{\alpha}} \sqrt{\frac{2h}{g}} \\
+            t_2 = \frac{2}{\sin{\alpha}} \sqrt{\frac{2h}{g}}
+        \end{gather*}
+
+        Из закона сохранения энергии (или из кинематики) находим скорости школьников у основания горки:
+
+        \begin{gather*}
+            V_1 = \sqrt{2 h g} \\
+            V_2 = 2 \sqrt{2 h g}
+        \end{gather*}
+        
+        В течение времени $ \Delta t = t_2 - t_1 = \frac{1}{\sin{\alpha}} \sqrt{\frac{2h}{g}} $ первый школьник тормозил на заснеженном участке пути, а второй все еще спускался с горки. Найдем, насколько первый школьник удалился от основания горки за это время, а также его скорость в момент, когда второй школьник оказался внизу горки:
+        
+        \begin{gather*}
+            S = V_1 \Delta t - \frac{\mu g {(\Delta t)}^2}{2} = \sqrt{2 h g} \frac{1}{\sin{\alpha}} \sqrt{\frac{2h}{g}} - \frac{\mu g}{2\sin^2{\alpha}} \frac{2h}{g} = \\
+            = \frac{h}{\sin{\alpha}} \left( 2 - \frac{\mu}{\sin{\alpha}} \right) \\
+            V = V_1 - \mu g \Delta t = \sqrt{2 h g} - \frac{\mu g}{\sin{\alpha}} \sqrt{\frac{2h}{g}} = \sqrt{2 h g} \left( 1 - \frac{\mu}{\sin{\alpha}} \right)
+        \end{gather*}
+        
+        Найдем время $ \tau $, за которое второй школьник догнал первого по горизонтальной поверхности:
+        
+        \begin{gather*}
+            V_2 \tau - \frac{\mu g \tau^2}{2} = S + V \tau - \frac{\mu g \tau^2}{2} \\
+            \tau = \frac{S}{V_2 - V} = \frac{\frac{h}{\sin{\alpha}} \left( 2 - \frac{\mu}{\sin{\alpha}} \right)}{2 \sqrt{2 h g} - \sqrt{2 h g} \left( 1 - \frac{\mu}{\sin{\alpha}} \right)} = \frac{h \left( 2 - \frac{\mu}{\sin{\alpha}} \right)}{\sqrt{2 h g} \left( 1 + \frac{\mu}{\sin{\alpha}} \right) \sin{\alpha}} = \\
+            = \frac{1}{2\sin{\alpha}} \sqrt{\frac{2h}{g}} \frac{2 - \frac{\mu}{\sin{\alpha}}}{1 + \frac{\mu}{\sin{\alpha}}}
+        \end{gather*}
+
+        Осталось сложить $ t_2 $ и $ \tau $, и получим искомое время:
+
+        \begin{gather*}
+            t = t_2 + \tau = \frac{2}{\sin{\alpha}} \sqrt{\frac{2h}{g}} + \frac{1}{2\sin{\alpha}} \sqrt{\frac{2h}{g}} \frac{2 - \frac{\mu}{\sin{\alpha}}}{1 + \frac{\mu}{\sin{\alpha}}} = \\
+            = \frac{1}{2\sin{\alpha}} \sqrt{\frac{2h}{g}} \frac{2 - \frac{\mu}{\sin{\alpha}} + 4 + 4\frac{\mu}{\sin{\alpha}}}{1 + \frac{\mu}{\sin{\alpha}}} = \\
+            = \frac{1}{2\sin{\alpha}} \sqrt{\frac{2h}{g}} \frac{6 + 3\frac{\mu}{\sin{\alpha}}}{1 + \frac{\mu}{\sin{\alpha}}} = \sqrt{\frac{h}{2g}} \frac{3\left(\mu + 2\sin{\alpha}\right)}{\left(\mu + \sin{\alpha} \right) \sin{\alpha}}
+        \end{gather*}
+    \end{enumerate}
+
+    \item Обозначим за $ \nu_0 $ - число моль воздуха в комнате, а за $ \nu $ - число моль борнилацетата. Тогда:
+
+    $$
+    \begin{cases}
+        p_0 S h = \nu_0 R T \\
+        n = \frac{N}{N_0} = \frac{\nu}{\nu_0} = \frac{\Delta m \tau}{M \nu_0}
+    \end{cases}
+    $$
+
+    Таким образом, находим $ \tau $:
+
+    \begin{equation*}
+        \tau = \frac{p_0 S h M n}{R T \Delta m} \approx 1179 \; \textup{сек} \approx 20 \; \textup{мин}
+    \end{equation*}
+
+\end{enumerate}
+
+\end{document}
